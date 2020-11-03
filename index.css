@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('fonts/NeuzeitGro-Bol.eot');
+    src: local('Neuzeit Grotesk Bold'), local('NeuzeitGro-Bol'),
+    url('fonts/NeuzeitGro-Bol.eot?#iefix') format('embedded-opentype'),
+    url('fonts/NeuzeitGro-Bol.woff2') format('woff2'),
+    url('fonts/NeuzeitGro-Bol.woff') format('woff'),
+    url('fonts/NeuzeitGro-Bol.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('fonts/OpenSans-Regular.eot');
+    src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url('fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('fonts/OpenSans-Regular.woff') format('woff'),
+    url('fonts/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --main: #ffffff;
     --text: #261f0f;
@@ -9,6 +33,7 @@
 
 body {
     margin: 0;
+    font-family: 'Neuzeit Grotesk';
 }
 
 .wrapper {
@@ -78,6 +103,11 @@ body {
     color: var(--text);
 }
 
+.logo_text_desc {
+    font-family: 'Open Sans';
+}
+
 .logo_text_desc_accent {
     color: var(--accent);
+    font-family: 'Neuzeit Grotesk';
 }
