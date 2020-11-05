@@ -1,13 +1,10 @@
 @font-face {
-    font-family: 'Neuzeit Grotesk';
-    src: url('fonts/NeuzeitGro-Bol.eot');
-    src: local('Neuzeit Grotesk Bold'), local('NeuzeitGro-Bol'),
-    url('fonts/NeuzeitGro-Bol.eot?#iefix') format('embedded-opentype'),
-    url('fonts/NeuzeitGro-Bol.woff2') format('woff2'),
-    url('fonts/NeuzeitGro-Bol.woff') format('woff'),
-    url('fonts/NeuzeitGro-Bol.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+    font-family: 'Evolventa Bold';
+    src: url('fonts/Evolventa-Bold.eot');
+    src: local('Evolventa Bold'), local('Evolventa-Bold'),
+    url('fonts/Evolventa-Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Evolventa-Bold.woff') format('woff'),
+    url('fonts/Evolventa-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -29,6 +26,7 @@
     --height: 82px;
     --width: 267px;
     --half: calc(var(--height) / 2);
+    --font-size: 24px;
 }
 
 body {
@@ -42,17 +40,26 @@ body {
 }
 
 .logo {
-    font-family: 'Neuzeit Grotesk';
-    font-size: 26px;
-    letter-spacing: 2.3px;
+    font-family: 'Evolventa Bold';
+    font-size: var(--font-size);
+    letter-spacing: .085em;
     width: 100%;
     height: 100%;
     display: flex;
-    background: url('img/f3df898.svg') center/contain no-repeat;
+    /*background: url(img/f3df898.svg) center/contain no-repeat; !*Использовал для отладки *!*/
+    align-items: center;
+    color: var(--text);
+    overflow: hidden;
 }
+/* Использовал для отладки */
+/*.logo > div {*/
+/*    filter: hue-rotate(180deg);*/
+/*    opacity: .7;*/
+/*}*/
 
 .logo_icon {
     width: var(--height);
+    height: var(--height);
 }
 
 .logo_icon_circle_1 {
@@ -64,7 +71,6 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    /*overflow: hidden;*/
 }
 
 .logo_icon_circle_1:before {
@@ -103,31 +109,32 @@ body {
 }
 
 .logo_text {
-    color: var(--text);
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
     align-items: baseline;
     width: calc(100% - var(--height));
-    text-align: right;
+    height: var(--half);
+    line-height: calc(var(--half) / 2);
+    white-space: nowrap;
+}
+
+.logo_text > div {
+    padding-left: .4em;
+    font-size: 1.01em;
 }
 
 .logo_text_title {
     width: 100%;
-    font-size: 26px;
-    letter-spacing: 2.3px;
-    left: 5px;
-    position: relative;
-    top: 12px;
+    margin-top: -.1em;
+    margin-right: -.2em;
 }
 
 .logo_text_desc {
+    margin-top: .3em;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    top: -1px;
-    position: relative;
-    left: 10px;
 }
 
 .logo_text_desc > * {
@@ -135,14 +142,74 @@ body {
 }
 
 .logo_text_desc_small {
-    font-size: 9px;
+    font-size: .38em;
     font-family: 'Open Sans';
     text-align: left;
-    padding: 3px;
-    letter-spacing: 0px;
-    line-height: 1.2;
+    letter-spacing: -.01em;
+    line-height: 1.25;
+    padding-left: 1em;
+    margin-top: -.3em;
 }
 
 .logo_text_desc_accent {
     color: var(--accent);
+}
+
+/* хак для IE 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .wrapper {
+        width: 267px;
+        height: 82px;
+        background: #ffffff;
+    }
+
+    .logo {
+        font-size: 24px;
+        color: #261f0f;
+    }
+
+    .logo_icon {
+        width: 82px;
+        height: 82px;
+    }
+
+    .logo_icon_circle_1 {
+        background: #261f0f;
+    }
+
+    .logo_icon_circle_1:before {
+        border-color: transparent #ffffff transparent transparent;
+        border-width: calc(41px * .6) 41px calc(41px * .6) 0 !important;
+        top: 16.5px;
+    }
+
+    .logo_icon_circle_2 {
+        background: #ffffff;
+    }
+
+    .logo_icon_circle_2:before {
+        border-color: transparent #00ADFF transparent transparent;
+        border-width: calc(41px * .6) 41px calc(41px * .6) 0 !important;
+    }
+
+    .logo_text {
+        width: calc(100% - 82px);
+        height: 41px;
+        line-height: calc(41px / 2);
+    }
+
+    .logo_text_title {
+        margin-top: .1em;
+    }
+
+    .logo_text_desc_accent {
+        color: #00ADFF;
+    }
+
+    .logo_text_desc_small {
+        letter-spacing: -0.03em;
+        line-height: 1.25;
+        padding-left: 1.7em;
+        margin-top: -.85em;
+    }
 }
